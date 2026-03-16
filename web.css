@@ -1,0 +1,116 @@
+/* Web Development Portfolio Items with Iframe */
+.web-iframe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.web-iframe-card {
+    background: #1e1e1e;
+    border: 1px solid #2a2a2a;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.web-iframe-card:hover {
+    transform: translateY(-8px);
+    border-color: #ff6b35;
+    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+}
+
+.web-iframe-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #0a0a0a;
+    overflow: hidden;
+}
+
+.web-iframe-container iframe {
+    width: 350%;
+    height: 350%;
+    background: white;
+    border: none;
+    transform: scale(0.29);
+    transform-origin: top left;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Hide scrollbars in iframe */
+.web-iframe-container iframe::-webkit-scrollbar {
+    display: none !important;
+}
+
+.web-iframe-container iframe {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+}
+
+.web-iframe-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.web-iframe-card:hover .web-iframe-overlay {
+    opacity: 1;
+}
+
+.web-iframe-card:hover .web-iframe-container iframe {
+    pointer-events: auto;
+}
+
+.web-iframe-info {
+    padding: 20px;
+    border-top: 1px solid #2a2a2a;
+}
+
+.web-iframe-info h3 {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.web-iframe-info p {
+    font-size: 0.85rem;
+    color: #ff6b35;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Mobile responsive */
+@media (max-width: 470px) {
+    .web-iframe-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .web-iframe-container {
+        aspect-ratio: 16/12;
+    }
+    
+    .web-iframe-info {
+        padding: 15px;
+    }
+    
+    .web-iframe-info h3 {
+        font-size: 1rem;
+    }
+    
+    .web-iframe-info p {
+        font-size: 0.75rem;
+    }
+}
